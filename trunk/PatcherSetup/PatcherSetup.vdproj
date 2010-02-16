@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_07423ACD4C6D9BA9F6360B2C8B63409C"
+        "OwnerKey" = "8:_2714B4B920BF495FA5EC3FB7A0690233"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2714B4B920BF495FA5EC3FB7A0690233"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -23,12 +29,6 @@
         {
         "MsmKey" = "8:_707030CE3B4F4C98B0ABFB716B5EBC7E"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B72E23C9DDE8AF43F7EE84E93B3F8B3E"
-        "OwnerKey" = "8:_2714B4B920BF495FA5EC3FB7A0690233"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,7 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B72E23C9DDE8AF43F7EE84E93B3F8B3E"
+        "OwnerKey" = "8:_07423ACD4C6D9BA9F6360B2C8B63409C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -144,34 +144,14 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_707030CE3B4F4C98B0ABFB716B5EBC7E"
-            {
-            "SourcePath" = "8:..\\Patcher\\license.txt"
-            "TargetName" = "8:license.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_B7E6DBCF741E41CA8196CA5674EFB653"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B72E23C9DDE8AF43F7EE84E93B3F8B3E"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_07423ACD4C6D9BA9F6360B2C8B63409C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.2.3295.21011, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.2.3699.26927, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B72E23C9DDE8AF43F7EE84E93B3F8B3E"
+                    "_07423ACD4C6D9BA9F6360B2C8B63409C"
                     {
                     "Name" = "8:WeifenLuo.WinFormsUI.Docking.dll"
                     "Attributes" = "3:512"
@@ -193,6 +173,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_707030CE3B4F4C98B0ABFB716B5EBC7E"
+            {
+            "SourcePath" = "8:..\\Patcher\\license.txt"
+            "TargetName" = "8:license.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_B7E6DBCF741E41CA8196CA5674EFB653"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F718520032C9483581745B8CE285AF50"
@@ -270,14 +270,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Patcher .NET Patch Generator"
-        "ProductCode" = "8:{0692444A-E2AD-4DC5-A497-7E997948E465}"
-        "PackageCode" = "8:{E45E3C39-BC77-4A37-8FC3-F5A355C92A9F}"
+        "ProductCode" = "8:{CCC4C09C-B829-4C69-ADC5-EFB8FC64B687}"
+        "PackageCode" = "8:{C6CAD1E2-BB1C-40FC-B9BD-CE51D1E0320D}"
         "UpgradeCode" = "8:{9023D8E9-6A91-430F-85CA-A16ABA3E3F8C}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Patcher"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
