@@ -97,6 +97,8 @@ namespace Patcher.Forms
             // chkBoxEncode64
             // 
             this.chkBoxEncode64.AutoSize = true;
+            this.chkBoxEncode64.Checked = true;
+            this.chkBoxEncode64.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBoxEncode64.Location = new System.Drawing.Point(57, 124);
             this.chkBoxEncode64.Name = "chkBoxEncode64";
             this.chkBoxEncode64.Size = new System.Drawing.Size(85, 17);
@@ -254,6 +256,8 @@ namespace Patcher.Forms
             // chBoxEncode1
             // 
             this.chBoxEncode1.AutoSize = true;
+            this.chBoxEncode1.Checked = true;
+            this.chBoxEncode1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBoxEncode1.Location = new System.Drawing.Point(21, 142);
             this.chBoxEncode1.Name = "chBoxEncode1";
             this.chBoxEncode1.Size = new System.Drawing.Size(85, 17);
