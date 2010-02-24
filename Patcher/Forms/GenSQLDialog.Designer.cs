@@ -256,8 +256,6 @@ namespace Patcher.Forms
             // chBoxEncode1
             // 
             this.chBoxEncode1.AutoSize = true;
-            this.chBoxEncode1.Checked = true;
-            this.chBoxEncode1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBoxEncode1.Location = new System.Drawing.Point(21, 142);
             this.chBoxEncode1.Name = "chBoxEncode1";
             this.chBoxEncode1.Size = new System.Drawing.Size(85, 17);
