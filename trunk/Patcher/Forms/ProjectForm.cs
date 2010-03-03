@@ -371,13 +371,13 @@ namespace Patcher.Forms
         string _IconFile;
         [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Appearance"),
-        DescriptionAttribute("Specify the icon displayed in the form's controlbox")]
+        DescriptionAttribute("Specifies the icon displayed in the form's controlbox")]
         public string IconFile { get { return _IconFile; } set { _IconFile = value; } }
 
         string _LogoFile;
         [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Appearance"),
-        DescriptionAttribute("Specify the logo displayed in the form")]
+        DescriptionAttribute("Specifies the logo displayed in the form")]
         public string LogoFile { get { return _LogoFile; } set { _LogoFile = value; } }
 
         string _Title;
@@ -401,7 +401,7 @@ namespace Patcher.Forms
         string _ServicesNames;
         const string SERVICESNAMES = "STR_SERVICESNAMES";
         [CategoryAttribute("Services"),
-        DescriptionAttribute("Specify services names to restart after the installation. Names must be separeted by a semicolumn (;) ")]
+        DescriptionAttribute("Specifies services names to restart after the installation. Names must be separeted by a semicolumn (;) ")]
         public string ServicesNames { get { return _ServicesNames; } set { _ServicesNames = value; } }
 
         bool _RestartServices;
@@ -410,10 +410,16 @@ namespace Patcher.Forms
         DescriptionAttribute("If TRUE stop services before installation and restart after installation")]
         public bool RestartServices { get { return _RestartServices; } set { _RestartServices = value; } }
 
+        int _ServiceWaitAfterStop;
+        const string SERVICEWAITAFTERSTOP = "INT_SERVICEWAITAFTERSTOP";
+        [CategoryAttribute("Services"),
+        DescriptionAttribute("Specifies a pause after the sevice stop signal (ms)")]
+        public int ServiceWaitAfterStop { get { return _ServiceWaitAfterStop; } set { _ServiceWaitAfterStop = value; } }
+
         int _PreviousPatchVersionRequired;
         const string PREVIOUSPATCHVERSIONREQUIRED = "INT_PREVIOUSPATCHVERSIONREQUIRED";
         [CategoryAttribute("Version"),
-        DescriptionAttribute("Specify patch version that has to be installed before apply this patch")]
+        DescriptionAttribute("Specifies patch version that has to be installed before apply this patch")]
         public int PreviousPatchVersionRequired { get { return _PreviousPatchVersionRequired; } set { _PreviousPatchVersionRequired = value; } }
 
         bool _PreviousPatchRequired;
@@ -424,7 +430,7 @@ namespace Patcher.Forms
         int _PatchVersion;
         const string PATCHVERSION = "INT_PATCHVERSION";
         [CategoryAttribute("Version"),
-        DescriptionAttribute("Specify patch version of the output patch")]
+        DescriptionAttribute("Specifies patch version of the output patch")]
         public int PatchVersion { get { return _PatchVersion; } set { _PatchVersion = value; } }
 
         bool _SavePatchVersion;
@@ -465,49 +471,49 @@ namespace Patcher.Forms
         string _InstallationPath;
         const string INSTALLATIONPATH = "STR_INSTALLATIONPATH";
         [CategoryAttribute("Install Folder"),
-        DescriptionAttribute("Specify the installation root folder. This override the registry install path")]
+        DescriptionAttribute("Specifies the installation root folder. This override the registry install path")]
         public string InstallationPath { get { return _InstallationPath; } set { _InstallationPath = value; } }
 
         string _SourceFile;
         [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Build"),
-        DescriptionAttribute("Specify source code file (CSharp) which contains the GUI to be build")]
+        DescriptionAttribute("Specifies source code file (CSharp) which contains the GUI to be build")]
         public string SourceFile { get { return _SourceFile; } set { _SourceFile = value; } }
 
         string _OutputFileName;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify the output file name")]
+        DescriptionAttribute("Specifies the output file name")]
         public string OutputFileName { get { return _OutputFileName; } set { _OutputFileName = value; } }
 
         string _OutputFolder;
         [EditorAttribute(typeof(FolderNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Build"),
-        DescriptionAttribute("Specify the output folder")]
+        DescriptionAttribute("Specifies the output folder")]
         public string OutputFolder { get { return _OutputFolder; } set { _OutputFolder = value; } }
 
         string _AdditionalReferencedAssemblies;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify additional referenced assemblies to be added during build process. Names must be separeted by a semicolumn (;) ")]
+        DescriptionAttribute("Specifies additional referenced assemblies to be added during build process. Names must be separeted by a semicolumn (;) ")]
         public string AdditionalReferencedAssemblies { get { return _AdditionalReferencedAssemblies; } set { _AdditionalReferencedAssemblies = value; } }
 
         string _AdditionalEmbeddedResources;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify additional embedded resources with full path which is to be added during build process. Names must be separeted by a semicolumn (;) ")]
+        DescriptionAttribute("Specifies additional embedded resources with full path which is to be added during build process. Names must be separeted by a semicolumn (;) ")]
         public string AdditionalEmbeddedResources { get { return _AdditionalEmbeddedResources; } set { _AdditionalEmbeddedResources = value; } }
 
         string _AdditionalLinkedResources;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify additional linked resources with full path which is to be added during build process. Names must be separeted by a semicolumn (;) ")]
+        DescriptionAttribute("Specifies additional linked resources with full path which is to be added during build process. Names must be separeted by a semicolumn (;) ")]
         public string AdditionalLinkedResources { get { return _AdditionalLinkedResources; } set { _AdditionalLinkedResources = value; } }
      
         string _CompilerOptions;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify compiler options")]
+        DescriptionAttribute("Specifies compiler options")]
         public string CompilerOptions { get { return _CompilerOptions; } set { _CompilerOptions = value; } }
 
         string _MainClass;
         [CategoryAttribute("Build"),
-        DescriptionAttribute("Specify the class that contains the main method of the executable")]
+        DescriptionAttribute("Specifies the class that contains the main method of the executable")]
         public string MainClass { get { return _MainClass; } set { _MainClass = value; } }
 
         bool _SaveSourceCode;
@@ -532,7 +538,7 @@ namespace Patcher.Forms
 
         private string _CommandName;
         [CategoryAttribute("Detail"),
-        DescriptionAttribute("Specify the command name visible in the listview")]
+        DescriptionAttribute("Specifies the command name visible in the listview")]
         [XmlAttributeAttribute("CommandName")]
         public string CommandName 
         { 
@@ -548,7 +554,7 @@ namespace Patcher.Forms
         private string _ResourceFullPath;
         [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Detail"),
-        DescriptionAttribute("Specify command file with full path")]
+        DescriptionAttribute("Specifies command file with full path")]
         [XmlAttributeAttribute("ResourceFullPath")]
         public string ResourceFullPath 
         { 
@@ -595,13 +601,13 @@ namespace Patcher.Forms
 
         private string _CommandArguments;
         [CategoryAttribute("Detail"),
-        DescriptionAttribute("Specify the command arguments")]
+        DescriptionAttribute("Specifies the command arguments")]
         [XmlAttributeAttribute("CommandArguments")]
         public string CommandArguments { get { return _CommandArguments; } set { _CommandArguments = value; } }
 
         private string _WorkingFolder;
         [CategoryAttribute("Detail"),
-        DescriptionAttribute("Specify the working folder where the command will be executed")]
+        DescriptionAttribute("Specifies the working folder where the command will be executed")]
         [XmlAttributeAttribute("WorkingFolder")]
         public string WorkingFolder { get { return _WorkingFolder; } set { _WorkingFolder = value; } }
     }
@@ -710,6 +716,7 @@ namespace Patcher.Forms
             _PO.CommandTimeout = 15;
             _PO.ServicesNames = string.Empty;
             _PO.RestartServices = false;
+            _PO.ServiceWaitAfterStop = 5000;
             _PO.PatchVersion = 0;
             _PO.PreviousPatchRequired = false;
             _PO.PreviousPatchVersionRequired = 0;

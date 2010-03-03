@@ -385,7 +385,8 @@ namespace Patcher
             "using System.Data.SqlClient;" + Environment.NewLine +
             "using System.Data;" + Environment.NewLine +
             "using System.Text.RegularExpressions;" + Environment.NewLine +
-            "using System.ServiceProcess;" + Environment.NewLine; 
+            "using System.ServiceProcess;" + Environment.NewLine +
+            "using System.Threading;" + Environment.NewLine; 
 
             string Content = string.Empty;
             int iCount = 0;
@@ -445,6 +446,7 @@ namespace Patcher
                 {
                     tw.WriteLine("LogMessage(Color.Blue, \"Stopping services..\");");
                     tw.WriteLine("PatcherHelper.StopServices();");
+                    tw.WriteLine("Thread.Sleep(" + po.ServiceWaitAfterStop.ToString() + ");");
                     tw.WriteLine("ReportProgress();");
                     iTotalOperations++;
                 }
