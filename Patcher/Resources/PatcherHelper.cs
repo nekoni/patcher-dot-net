@@ -221,7 +221,7 @@ public static class PatcherHelper
             if (Service.Status == ServiceControllerStatus.Running)
             {
                 Service.Stop();
-                Service.WaitForStatus(ServiceControllerStatus.Stopped, new TimeSpan(0, 1, 0));
+                Service.WaitForStatus(ServiceControllerStatus.Stopped, new TimeSpan(0, 5, 0));
             }
     }
 
@@ -231,7 +231,7 @@ public static class PatcherHelper
             if (Service.Status == ServiceControllerStatus.Stopped)
             {
                 Service.Start();
-                Service.WaitForStatus(ServiceControllerStatus.Running, new TimeSpan(0, 1, 0));
+                Service.WaitForStatus(ServiceControllerStatus.Running, new TimeSpan(0, 5, 0));
             }
     }
 
