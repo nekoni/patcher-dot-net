@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_07423ACD4C6D9BA9F6360B2C8B63409C"
+        "MsmKey" = "8:_1759D0C9A5D7556038807A4CDAA1843E"
         "OwnerKey" = "8:_2714B4B920BF495FA5EC3FB7A0690233"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,7 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_07423ACD4C6D9BA9F6360B2C8B63409C"
+        "OwnerKey" = "8:_1759D0C9A5D7556038807A4CDAA1843E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -144,14 +144,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_07423ACD4C6D9BA9F6360B2C8B63409C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1759D0C9A5D7556038807A4CDAA1843E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.2.3699.26927, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.2.3691.31626, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_07423ACD4C6D9BA9F6360B2C8B63409C"
+                    "_1759D0C9A5D7556038807A4CDAA1843E"
                     {
                     "Name" = "8:WeifenLuo.WinFormsUI.Docking.dll"
                     "Attributes" = "3:512"
@@ -270,14 +270,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Patcher .NET Patch Generator"
-        "ProductCode" = "8:{CCC4C09C-B829-4C69-ADC5-EFB8FC64B687}"
-        "PackageCode" = "8:{C6CAD1E2-BB1C-40FC-B9BD-CE51D1E0320D}"
+        "ProductCode" = "8:{99C5D8C9-104F-4C47-B772-DC948634F914}"
+        "PackageCode" = "8:{F98BDE67-5BBA-4EBE-87FA-C946DB36FED3}"
         "UpgradeCode" = "8:{9023D8E9-6A91-430F-85CA-A16ABA3E3F8C}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.4"
         "Manufacturer" = "8:Patcher"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

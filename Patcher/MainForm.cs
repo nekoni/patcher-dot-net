@@ -477,6 +477,8 @@ namespace Patcher
                     iCount = 0;
                     foreach (ResourceNode rn in CurrentProject.ResourceNodes)
                     {
+                        if (!rn.ResourceFound)
+                            continue;
                         tw.WriteLine("string strRes{0} = @\"{1}\".Replace(\"{2}\", strInstallationRoot);", iCount.ToString(), rn.NodePath, CurrentProject.ProjectName);
                         tw.WriteLine("LogMessage(Color.Blue, \"Coping \" + strRes{0});", iCount.ToString());
                         tw.WriteLine("if(File.Exists(strRes{0}))", iCount.ToString());
@@ -493,6 +495,8 @@ namespace Patcher
 
                 foreach (CommandEntry ce in CurrentProject.CommandEntries)
                 {
+                    if (!ce.ResourceFound)
+                        continue;
                     if (ce.CmdType == CmdTypes.SQLScript)
                     {
                         tw.WriteLine("LogMessage(Color.Blue, \"Starting SQL transaction..\");");
@@ -507,6 +511,8 @@ namespace Patcher
                 iCount = 0;
                 foreach (CommandEntry ce in CurrentProject.CommandEntries)
                 {
+                    if (!ce.ResourceFound)
+                        continue;
                     tw.WriteLine("LogMessage(Color.Blue, \"Executing \" + \"{0}\");", Path.GetFileName(ce.ResourceFullPath));
                     if (ce.CmdType == CmdTypes.SQLScript)
                         tw.WriteLine("PatcherHelper.ExecuteSctipInTransaction(sqlCon, sqlTran, \"{0}\");", Path.GetFileName(ce.ResourceTempFullPath));
@@ -796,10 +802,16 @@ namespace Patcher
                     }
 
                     foreach (ResourceNode rn in CurrentProject.ResourceNodes)
-                        EmbeddedResources.Add(rn.ResourceTempFullPath);
+                        if (rn.ResourceFound)
+                            EmbeddedResources.Add(rn.ResourceTempFullPath);
+                        else
+                            m_outputWindow.WriteLine(rn.FileName + " skipped. Reason: file not found");
 
                     foreach (CommandEntry ce in CurrentProject.CommandEntries)
-                        EmbeddedResources.Add(ce.ResourceTempFullPath);
+                        if(ce.ResourceFound)
+                            EmbeddedResources.Add(ce.ResourceTempFullPath);
+                        else
+                            m_outputWindow.WriteLine(ce.CommandName + " skipped. Reason: file not found");
 
                     CompileCode(strSourceFile, ReferencedAssemblies, po.CompilerOptions, po.MainClass, LinkedResources, EmbeddedResources, Path.Combine(po.OutputFolder, po.OutputFileName));
                 }
