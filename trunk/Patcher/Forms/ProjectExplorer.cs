@@ -101,7 +101,11 @@ namespace Patcher.Forms
         {
             TreeNode tn = new TreeNode();
             tn.Name = tn.Text = Text;
-            tn.SelectedImageKey = tn.ImageKey = "RESOURCE";
+            ResourceNode rn = (ResourceNode) TAG;
+            string strIcon = "RESOURCE";
+            if (!rn.ResourceFound)
+                strIcon = "UNAVAILABLE";
+            tn.SelectedImageKey = tn.ImageKey = strIcon;
             tn.Tag = TAG;
             return tn;
         }

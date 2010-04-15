@@ -31,12 +31,12 @@ namespace Patcher.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectExplorer));
             this.tvProjectExplorer = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NewFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,15 @@ namespace Patcher.Forms
             this.tvProjectExplorer.TabIndex = 0;
             this.tvProjectExplorer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvProjectExplorer_MouseUp);
             // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "PROJECT");
+            this.imageList.Images.SetKeyName(1, "FOLDER");
+            this.imageList.Images.SetKeyName(2, "RESOURCE");
+            this.imageList.Images.SetKeyName(3, "UNAVAILABLE");
+            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -61,13 +70,13 @@ namespace Patcher.Forms
             this.DeleteFolderToolStripMenuItem,
             this.DeleteResourceToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(165, 92);
+            this.contextMenuStrip.Size = new System.Drawing.Size(154, 92);
             // 
             // NewFolderToolStripMenuItem
             // 
             this.NewFolderToolStripMenuItem.Image = global::Patcher.Properties.Resources.NewFolderHS;
             this.NewFolderToolStripMenuItem.Name = "NewFolderToolStripMenuItem";
-            this.NewFolderToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.NewFolderToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.NewFolderToolStripMenuItem.Text = "New Folder";
             this.NewFolderToolStripMenuItem.Click += new System.EventHandler(this.NewFolderToolStripMenuItem_Click);
             // 
@@ -75,7 +84,7 @@ namespace Patcher.Forms
             // 
             this.NewResourceToolStripMenuItem.Image = global::Patcher.Properties.Resources.AddToFavoritesHS;
             this.NewResourceToolStripMenuItem.Name = "NewResourceToolStripMenuItem";
-            this.NewResourceToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.NewResourceToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.NewResourceToolStripMenuItem.Text = "New Resource";
             this.NewResourceToolStripMenuItem.Click += new System.EventHandler(this.NewResourceToolStripMenuItem_Click);
             // 
@@ -83,7 +92,7 @@ namespace Patcher.Forms
             // 
             this.DeleteFolderToolStripMenuItem.Image = global::Patcher.Properties.Resources.DeleteFolderHS;
             this.DeleteFolderToolStripMenuItem.Name = "DeleteFolderToolStripMenuItem";
-            this.DeleteFolderToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.DeleteFolderToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.DeleteFolderToolStripMenuItem.Text = "Delete Folder";
             this.DeleteFolderToolStripMenuItem.Click += new System.EventHandler(this.DeleteFolderToolStripMenuItem_Click);
             // 
@@ -91,17 +100,9 @@ namespace Patcher.Forms
             // 
             this.DeleteResourceToolStripMenuItem.Image = global::Patcher.Properties.Resources.DeleteHS;
             this.DeleteResourceToolStripMenuItem.Name = "DeleteResourceToolStripMenuItem";
-            this.DeleteResourceToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.DeleteResourceToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.DeleteResourceToolStripMenuItem.Text = "Delete Resource";
             this.DeleteResourceToolStripMenuItem.Click += new System.EventHandler(this.DeleteResourceToolStripMenuItem_Click);
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "PROJECT");
-            this.imageList.Images.SetKeyName(1, "FOLDER");
-            this.imageList.Images.SetKeyName(2, "RESOURCE");
             // 
             // ProjectExplorer
             // 

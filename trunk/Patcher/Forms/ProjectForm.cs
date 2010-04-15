@@ -94,7 +94,7 @@ namespace Patcher.Forms
         public ProjectForm(string FileName)
         {
             InitializeComponent();
-
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(FileName));
             m_PatcherProject = XMLSerializationHelper<PatcherProject>.Load(FileName);
             Text = m_PatcherProject.ProjectName;
             m_FileName = FileName;
@@ -146,6 +146,7 @@ namespace Patcher.Forms
         private void SaveProjectFile()
         {
             m_PatcherProject.ProjectName = Path.GetFileNameWithoutExtension(m_FileName);
+            Uri prjUri = new Uri(Path.GetDirectoryName(m_FileName) + @"/");
             foreach (FolderNode fn in m_PatcherProject.FolderNodes)
                 fn.NodePath = fn.NodePath.Replace(Text, m_PatcherProject.ProjectName);
             foreach (ResourceNode rn in m_PatcherProject.ResourceNodes)
@@ -156,6 +157,10 @@ namespace Patcher.Forms
             m_PatcherProject.CommandEntries.Clear();
             foreach (ListViewItem lvi in listViewCommands.Items)
                 m_PatcherProject.CommandEntries.Add((CommandEntry)lvi.Tag);
+            foreach (CommandEntry ce in m_PatcherProject.CommandEntries)
+                ce.ResourceRelativePath = prjUri.MakeRelativeUri(new Uri(ce.ResourceFullPath)).ToString();
+            foreach (ResourceNode rn in m_PatcherProject.ResourceNodes)
+                rn.ResourceRelativePath = prjUri.MakeRelativeUri(new Uri(rn.ResourceFullPath)).ToString();
             XMLSerializationHelper<PatcherProject>.Save(m_PatcherProject, m_FileName);
         }
         #endregion
@@ -551,6 +556,20 @@ namespace Patcher.Forms
             } 
         }
 
+        private bool _ResourceFound;
+        [Browsable(false)]
+        [XmlIgnore]
+        public bool ResourceFound { get { return _ResourceFound; } set { _ResourceFound = value; } }
+
+        private string _ResourceRelativePath;
+        [Browsable(false)]
+        [XmlAttributeAttribute("ResourceRelativePath")]
+        public string ResourceRelativePath
+        {
+            get { return _ResourceRelativePath; }
+            set { _ResourceRelativePath = value; }
+        }
+
         private string _ResourceFullPath;
         [EditorAttribute(typeof(FileNameEditor), typeof(UITypeEditor)),
         CategoryAttribute("Detail"),
@@ -561,10 +580,16 @@ namespace Patcher.Forms
             get { return _ResourceFullPath; } 
             set 
             {
-                _ResourceTempFullPath = Path.Combine(Path.GetTempPath(), Path.GetTempFileName());
-                File.Copy(value, _ResourceTempFullPath, true);
-                _ResourceFullPath = value;
-                if (value == null)
+                if (!File.Exists(value))
+                    _ResourceFullPath = Path.GetFullPath(_ResourceRelativePath);
+                else
+                    _ResourceFullPath = value;
+                if (_ResourceFound = File.Exists(_ResourceFullPath))
+                {
+                    _ResourceTempFullPath = Path.Combine(Path.GetTempPath(), Path.GetTempFileName());
+                    File.Copy(_ResourceFullPath, _ResourceTempFullPath, true);
+                }
+                if (value == null || !_ResourceFound)
                 {
                     CmdType = CmdTypes.UNKNOWN;
                     return;
@@ -591,6 +616,7 @@ namespace Patcher.Forms
                 }
                 if (OnCommandEntryChanged != null)
                     OnCommandEntryChanged(this);
+                
             } 
         }
 
@@ -623,6 +649,20 @@ namespace Patcher.Forms
         [XmlAttributeAttribute("NodePath")]
         public string NodePath{ get { return _NodePath; } set { _NodePath = value; }}
 
+        private bool _ResourceFound;
+        [Browsable(false)]
+        [XmlIgnore]
+        public bool ResourceFound { get { return _ResourceFound; } set { _ResourceFound = value; } }
+
+        private string _ResourceRelativePath;
+        [Browsable(false)]
+        [XmlAttributeAttribute("ResourceRelativePath")]
+        public string ResourceRelativePath
+        {
+            get { return _ResourceRelativePath; }
+            set { _ResourceRelativePath = value; }
+        }
+
         private string _ResourceFullPath;
         [Browsable(false)]
         [XmlAttributeAttribute("ResourceFullPath")]
@@ -631,9 +671,15 @@ namespace Patcher.Forms
             get { return _ResourceFullPath; } 
             set 
             {
-                _ResourceTempFullPath = Path.Combine(Path.GetTempPath(), Path.GetTempFileName());
-                File.Copy(value, _ResourceTempFullPath, true);
-                _ResourceFullPath = value; 
+                if (!File.Exists(value))
+                    _ResourceFullPath = Path.GetFullPath(_ResourceRelativePath);
+                else
+                    _ResourceFullPath = value;
+                if (_ResourceFound = File.Exists(_ResourceFullPath))
+                {
+                    _ResourceTempFullPath = Path.Combine(Path.GetTempPath(), Path.GetTempFileName());
+                    File.Copy(_ResourceFullPath, _ResourceTempFullPath, true);
+                }
             } 
         }
 
